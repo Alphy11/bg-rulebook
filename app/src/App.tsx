@@ -1,9 +1,13 @@
-
+import { BrowserRouter, Route } from 'react-router-dom';
+import { NotFoundPage } from './components/NotFoundPage';
+import { HomePage } from './HomePage';
 function App() {
-  return (
-    <h1 className="text-3xl font-bold underline m-4 p-4 border border-black">
-      Hello world!
-    </h1>  )
+    return (
+        <BrowserRouter>
+            <Route path="/" element={<HomePage />} />
+            <Route element={<NotFoundPage />} />
+        </BrowserRouter>
+    );
 }
 
-export default App
+export default App;
