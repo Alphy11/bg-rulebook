@@ -4,18 +4,11 @@ import { Rule } from '../../testUtils/content';
 import { RuleDisplay } from '../RuleDisplay';
 import { SelectedItemContext } from '../Store';
 import { RuleRow } from './RuleRow';
-import styled from 'styled-components';
-import { FlexBox } from '../Utility';
 
 export type HeriarchyComponentProps = {
     rules: Rule[];
     selectedRule?: Rule;
 };
-
-const RuleArea = styled(FlexBox)`
-    padding-top: 24px;
-    border-bottom: 1px solid black;
-`;
 
 export function HeriarchyComponent({ rules }: HeriarchyComponentProps) {
     const { selectedItem } = useContext(SelectedItemContext);
@@ -23,15 +16,15 @@ export function HeriarchyComponent({ rules }: HeriarchyComponentProps) {
         <>
             {selectedItem && (
                 <>
-                    <RuleArea>
+                    <div className="flex pt-3 border-b border-black">
                         <RuleDisplay rule={selectedItem} />
-                    </RuleArea>
+                    </div>
                 </>
             )}
             <SwipeableList>
                 {(selectedItem === null ? rules : selectedItem.subtree)
-                    ?.filter(rule => rule.type !== 'related topics')
-                    .map(rule => (
+                    ?.filter((rule: Rule) => rule.type !== 'related topics')
+                    .map((rule: Rule) => (
                         <RuleRow key={rule.id} rule={rule} />
                     ))}
             </SwipeableList>

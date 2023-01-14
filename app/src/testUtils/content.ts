@@ -1,6 +1,4 @@
-import * as faker from 'faker';
-// type Digit = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '0';
-// type MultiDigit<T extends string> = `${T}` | `${T}${T}`;
+import { faker } from '@faker-js/faker';
 
 function fakeTitle(): string {
     return faker.lorem.sentence();
@@ -10,7 +8,7 @@ function fakeContent() {
         .fill(0)
         .map(() => faker.lorem.sentence());
 }
-function fakeRule(ruleNumber, depth) {
+function fakeRule(ruleNumber: string, depth: number) {
     return {
         type: 'some',
         id: ruleNumber,

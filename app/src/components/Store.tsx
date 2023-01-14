@@ -1,6 +1,6 @@
-import { Rule } from 'app/content';
-import { shouldNotHappen } from 'app/util/validation';
-import React, { createContext, PropsWithChildren, useReducer } from 'react';
+import { Rule } from '../testUtils/content';
+import { shouldNotHappen } from '../util/validation';
+import { createContext, PropsWithChildren, useReducer } from 'react';
 
 type SelectedItemStore = {
     selectedItem: Rule | null;

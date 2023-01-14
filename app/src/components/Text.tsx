@@ -1,9 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-
-export const Text = styled.div`
-    /* min-height: 1.5em; */
-`;
 
 type ContentBodyProps = {
     content: NonNullable<React.ReactNode>[];
@@ -14,12 +9,16 @@ export function ContentBody({ content }: ContentBodyProps) {
         <>
             {content.map((line, i) => (
                 // we cna use index here since it is static data
-                <Text key={i}>{line}</Text>
+                <div key={i}>{line}</div>
             ))}
         </>
     );
 }
 
-export const TitleBody = styled(Text)`
-    font-weight: bold;
-`;
+interface TitleBodyProps {
+    children: React.ReactNode;
+}
+
+export function TitleBody({ children }: TitleBodyProps) {
+    return <div className="font-bold">{children}</div>;
+}

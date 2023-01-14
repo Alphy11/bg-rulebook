@@ -1,7 +1,5 @@
-import React from 'react';
-import { Rule } from 'app/content';
+import { Rule } from '../testUtils/content';
 import { ContentBody, TitleBody } from './Text';
-import { Padding } from './Utility';
 
 export type RuleDisplayProps = {
     rule: Rule;
@@ -10,12 +8,12 @@ export type RuleDisplayProps = {
 export function RuleDisplay({ rule }: RuleDisplayProps) {
     const { additional, content } = rule;
     return (
-        <Padding horizontal={1.5} bottom={4}>
+        <div className="px-1.5 pb-4">
             <TitleBody>
                 {additional?.indexer || ''} {additional?.title || ''}
             </TitleBody>
 
             <ContentBody content={content} />
-        </Padding>
+        </div>
     );
 }

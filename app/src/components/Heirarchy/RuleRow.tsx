@@ -1,42 +1,20 @@
 import { SwipeableListItem } from '@sandstreamdev/react-swipeable-list';
-import { Rule } from 'app/content';
-import React, { useContext } from 'react';
+import { Rule } from '../../testUtils/content';
+import React, { ReactNode, useContext } from 'react';
 import { BsChevronRight } from 'react-icons/bs';
-import styled, { css } from 'styled-components';
 import { SelectedItemContext } from '../Store';
 import { ContentBody, TitleBody } from '../Text';
-import { FlexBox, FlexItem, CenteredContent, Padding } from '../Utility';
 
 type RuleRowProps = {
     rule: Rule;
 };
-
-const RowBody = styled.div`
-    padding: 16px 16px;
-    border-bottom: 1px solid black;
-    width: 100%;
-`;
-const IDBody = styled(TitleBody)`
-    padding-right: 8px;
-    ${({ children }) => {
-        if (
-            children &&
-            typeof children === 'string' &&
-            children.match(/[a-z]/i)
-        ) {
-            return css`
-                margin-right: 20%;
-            `;
-        }
-    }}
-`;
-const RuleBody = styled(FlexItem)`
-    min-width: 85%;
-`;
-
-const RuleFlexBox = styled(FlexBox)`
-    flex: 1;
-`;
+function IDBody({ children }: { children: ReactNode }) {
+    const padContent =
+        children && typeof children === 'string' && children.match(/[a-z]/i);
+    return (
+        <div className={`pr-1 ${padContent ? 'mr-[20%]' : ''}`}>{children}</div>
+    );
+}
 
 export function RuleRow({ rule }: RuleRowProps) {
     const { additional = {}, content, subtree } = rule;
@@ -47,34 +25,35 @@ export function RuleRow({ rule }: RuleRowProps) {
     return (
         <>
             <SwipeableListItem threshold={0.4}>
-                <RowBody
+                <div
+                    className="p-2 w-full border-b border-black"
                     onClick={
                         hasChildren ? () => pushSelectedItem(rule) : undefined
                     }
                 >
-                    <FlexBox>
-                        <RuleFlexBox wrap>
+                    <div className="flex">
+                        <div className="flex flex-1 flex-wrap">
                             {additional.indexer && (
                                 <IDBody> {additional.indexer}</IDBody>
                             )}
-                            <RuleBody>
+                            <div className="flex-1 min-w-[85%]">
                                 {additional.title && (
                                     <TitleBody>{additional.title}</TitleBody>
                                 )}
                                 {!!content?.length && (
                                     <ContentBody content={content} />
                                 )}
-                            </RuleBody>
-                        </RuleFlexBox>
+                            </div>
+                        </div>
                         {!!subtree && (
-                            <CenteredContent>
-                                <Padding left={1}>
+                            <div className="flex items-center justify-center">
+                                <div className="pl-1">
                                     <BsChevronRight />
-                                </Padding>
-                            </CenteredContent>
+                                </div>
+                            </div>
                         )}
-                    </FlexBox>
-                </RowBody>
+                    </div>
+                </div>
             </SwipeableListItem>
         </>
     );

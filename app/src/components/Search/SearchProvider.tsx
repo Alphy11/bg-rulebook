@@ -1,5 +1,5 @@
 import React, { createContext, useState, PropsWithChildren } from 'react';
-import { shouldNotHappen } from 'app/util/validation';
+import { shouldNotHappen } from '../../util/validation';
 
 export type SearchContextShape = [
     searchText: string | null,
