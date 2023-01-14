@@ -1,0 +1,19 @@
+{
+  "name": "@bg-rulebook/root",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "workspaces": [
+    "app/",
+    "rulesets/*"
+  ],
+  "scripts": {
+    "test": "echo test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "packageManager": "^pnpm@7.12.2"
+}
