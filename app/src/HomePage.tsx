@@ -9,7 +9,7 @@ export function HomePage() {
     return (
         <SearchProvider>
             <StoreProvider>
-                <div className="flex flex-col h-full">
+                <div className="flex h-full flex-col">
                     <Header />
                     <Search />
                     <Heriarchy

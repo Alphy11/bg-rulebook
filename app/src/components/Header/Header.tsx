@@ -9,7 +9,7 @@ export function Header() {
     const showArrow = selectedItem || searchText;
 
     return (
-        <div className="flex-1 px-1 border-b-black border-b bg-gray-400">
+        <div className="flex-1 border-b border-b-black bg-gray-400 px-1">
             <div className="pl-0.5">
                 <AiOutlineArrowLeft
                     visibility={showArrow ? 'visible' : 'hidden'}

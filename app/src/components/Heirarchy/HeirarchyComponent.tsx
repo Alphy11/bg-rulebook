@@ -16,7 +16,7 @@ export function HeriarchyComponent({ rules }: HeriarchyComponentProps) {
         <>
             {selectedItem && (
                 <>
-                    <div className="flex pt-3 border-b border-black">
+                    <div className="flex border-b border-black pt-3">
                         <RuleDisplay rule={selectedItem} />
                     </div>
                 </>

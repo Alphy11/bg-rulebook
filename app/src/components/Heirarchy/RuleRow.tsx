@@ -26,7 +26,7 @@ export function RuleRow({ rule }: RuleRowProps) {
         <>
             <SwipeableListItem threshold={0.4}>
                 <div
-                    className="p-2 w-full border-b border-black"
+                    className="w-full border-b border-black p-2"
                     onClick={
                         hasChildren ? () => pushSelectedItem(rule) : undefined
                     }
@@ -36,7 +36,7 @@ export function RuleRow({ rule }: RuleRowProps) {
                             {additional.indexer && (
                                 <IDBody> {additional.indexer}</IDBody>
                             )}
-                            <div className="flex-1 min-w-[85%]">
+                            <div className="min-w-[85%] flex-1">
                                 {additional.title && (
                                     <TitleBody>{additional.title}</TitleBody>
                                 )}
