@@ -1,8 +1,8 @@
 import React from 'react';
 
-type ContentBodyProps = {
+interface ContentBodyProps {
     content: NonNullable<React.ReactNode>[];
-};
+}
 
 export function ContentBody({ content }: ContentBodyProps) {
     return (

@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 
 import { Rule } from '../../testUtils/content';
 import { SearchContext } from '../Search';
 import { SelectedItemContext } from '../Store';
 import { HeriarchyComponent } from './HeirarchyComponent';
 
-export type HeirarchyProps = {
+export interface HeirarchyProps {
     rules: Rule[];
     selectedRule?: Rule;
-};
+}
 export function Heriarchy({ rules }: HeirarchyProps) {
     const [searchText] = useContext(SearchContext);
 
@@ -40,7 +40,7 @@ function SearchedHeirarchy({ rules: allRules }: HeirarchyProps) {
 }
 
 function searchForRules(searchText: RegExp, rules: Rule[] = []): Rule[] {
-    return rules.reduce((found, current) => {
+    return rules.reduce<Rule[]>((found, current) => {
         if (
             current.additional?.indexer?.match(searchText) ||
             current.additional?.title?.match(searchText) ||
@@ -51,7 +51,7 @@ function searchForRules(searchText: RegExp, rules: Rule[] = []): Rule[] {
 
         found.push(...searchForRules(searchText, current.subtree));
         return found;
-    }, [] as Rule[]);
+    }, []);
 }
 
 export interface DebounceOptions {

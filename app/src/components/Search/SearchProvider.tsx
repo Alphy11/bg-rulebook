@@ -11,7 +11,7 @@ export const SearchContext = createContext<SearchContextShape>([
     shouldNotHappen('setSearch'),
 ]);
 
-export function SearchProvider({ children }: PropsWithChildren<{}>) {
+export function SearchProvider({ children }: PropsWithChildren) {
     const [searchText, setSearchText] = useState<string | null>(null);
 
     return (

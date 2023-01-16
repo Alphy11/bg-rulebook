@@ -5,10 +5,10 @@ import { RuleDisplay } from '../RuleDisplay';
 import { SelectedItemContext } from '../Store';
 import { RuleRow } from './RuleRow';
 
-export type HeriarchyComponentProps = {
+export interface HeriarchyComponentProps {
     rules: Rule[];
     selectedRule?: Rule;
-};
+}
 
 export function HeriarchyComponent({ rules }: HeriarchyComponentProps) {
     const { selectedItem } = useContext(SelectedItemContext);

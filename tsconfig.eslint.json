@@ -1,0 +1,5 @@
+{
+    // eslint does not support composite projects, so we usre this for eslint to include all files
+    "extends": "./tsconfig.json",
+    "include": ["."]
+}

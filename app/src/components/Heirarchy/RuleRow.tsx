@@ -5,9 +5,9 @@ import { BsChevronRight } from 'react-icons/bs';
 import { SelectedItemContext } from '../Store';
 import { ContentBody, TitleBody } from '../Text';
 
-type RuleRowProps = {
+interface RuleRowProps {
     rule: Rule;
-};
+}
 function IDBody({ children }: { children: ReactNode }) {
     const padContent =
         children && typeof children === 'string' && children.match(/[a-z]/i);
@@ -40,7 +40,7 @@ export function RuleRow({ rule }: RuleRowProps) {
                                 {additional.title && (
                                     <TitleBody>{additional.title}</TitleBody>
                                 )}
-                                {!!content?.length && (
+                                {!!content.length && (
                                     <ContentBody content={content} />
                                 )}
                             </div>

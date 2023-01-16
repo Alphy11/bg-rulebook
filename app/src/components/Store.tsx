@@ -2,12 +2,12 @@ import { Rule } from '../testUtils/content';
 import { shouldNotHappen } from '../util/validation';
 import { createContext, PropsWithChildren, useReducer } from 'react';
 
-type SelectedItemStore = {
+interface SelectedItemStore {
     selectedItem: Rule | null;
     pushSelectedItem(item: Rule): void;
     popSelectedItem(): void;
     clearSelectedItem(): void;
-};
+}
 
 type FavoriteItemStore = [
     favoriteItems: Record<string, boolean>,
@@ -38,7 +38,7 @@ export const FavoriteItemContext = createContext<FavoriteItemStore>([
     shouldNotHappen('toggleFavoriteItem'),
 ]);
 
-export function StoreProvider({ children }: PropsWithChildren<{}>) {
+export function StoreProvider({ children }: PropsWithChildren) {
     const [favoriteItems, toggleFavorited] = useReducer(
         (lastFavorites: Record<string, boolean>, changedItem: string) => {
             if (lastFavorites[changedItem]) {

@@ -27,7 +27,7 @@ function fakeRules(ruleNumber: string, depth: number): Rule[] {
         .map((_, arrayIndex) => fakeRule(`${ruleNumber}.${arrayIndex}`, depth));
 }
 
-export type Rule = {
+export interface Rule {
     id: string;
     additional?: {
         title?: string;
@@ -36,7 +36,7 @@ export type Rule = {
     content: string[];
     type: string;
     subtree?: Rule[];
-};
+}
 
 export const random: Rule[] = new Array(4)
     .fill(0)

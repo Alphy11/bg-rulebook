@@ -11,7 +11,7 @@ export function Search() {
                 <input
                     className="flex-1 appearance-none bg-transparent outline-none"
                     id="search"
-                    value={searchText || ''}
+                    value={searchText ?? ''}
                     onChange={e => setSearchText(e.target.value)}
                     placeholder="Search..."
                 />

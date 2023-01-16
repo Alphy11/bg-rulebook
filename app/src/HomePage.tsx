@@ -4,6 +4,7 @@ import FactionInfo from './content/FactionList.json';
 import { Search, SearchProvider } from './components/Search';
 import { StoreProvider } from './components/Store';
 import { Header } from './components/Header';
+import { Rule } from './testUtils/content';
 
 export function HomePage() {
     return (
@@ -25,7 +26,7 @@ export function HomePage() {
                                 ],
                                 type: 'root',
                                 subtree: FactionInfo,
-                            } as any,
+                            } as Rule,
                         ]}
                     />
                 </div>
