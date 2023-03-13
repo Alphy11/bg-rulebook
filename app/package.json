@@ -4,10 +4,12 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
+        "start": "dev",
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "test": "vitest"
+        "test": "vitest",
+        "?aliases": "Alias section"
     },
     "dependencies": {
         "@faker-js/faker": "^7.6.0",

@@ -1,12 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { NotFoundPage } from './components/NotFoundPage';
-import { HomePage } from './HomePage';
+import { NotFoundPage } from './pages/NotFound';
+import { HomePage } from './pages/Home';
+import { RulesPage } from './pages/Rules';
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route element={<NotFoundPage />} />
+                <Route path="/rules/:game" element={<RulesPage />} />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </BrowserRouter>
     );

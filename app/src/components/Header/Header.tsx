@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { SelectedItemContext } from '../Store';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { SearchContext } from '../Search';
+import { useParams } from 'react-router-dom';
 
 export function Header() {
     const { selectedItem, popSelectedItem } = useContext(SelectedItemContext);
@@ -9,7 +10,7 @@ export function Header() {
     const showArrow = selectedItem || searchText;
 
     return (
-        <div className="flex-1 border-b border-b-black bg-gray-400 px-1">
+        <div className="min-h-[10px] flex-1 border-b border-b-black bg-gray-400">
             <div className="pl-0.5">
                 <AiOutlineArrowLeft
                     visibility={showArrow ? 'visible' : 'hidden'}
